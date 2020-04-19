@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <style>
+            :root {
+                --app-width: 100%;
+                --side-width: 450px;
+                --transition-duration: 0.5s;
+            }
+            .app {
+                border: solid 1px red;
+                width: var(--app-width);
+                height: 100%;
+
+                position: relative;
+
+                display:flex;
+                flex-direction: column;
+            }
+            .title {
+                border: solid 1px green;
+
+                flex-flow: 0 0 auto;
+            }
+            .tool {
+                border: solid 1px blue;
+
+                flex-flow: 0 0 auto;
+            }
+            .content {
+                border: solid 1px yellow;
+                overflow: hidden;
+
+                flex-flow: 1 1 auto;
+                height:100%;
+
+                position: relative;
+            }
+            .main {
+                border: solid 1px red;
+                font-size: 40px;
+                overflow: scroll;
+
+                position: absolute;
+                height: 100%;
+            }
+            .side {
+                border: solid 1px green;
+                font-size: 40px;
+                overflow: scroll;
+
+                position: absolute;
+                height: 100%;
+                width: var(--side-width);
+
+                display: flex;
+                flex-direction: column;
+            }
+            .side-header{
+                border: solid 1px pink;
+                flex-flow: 0 0 auto;
+            }
+
+            .side-content{
+                border: solid 1px magenta;
+                flex-flow: 1 1 auto;
+                overflow: scroll;
+            }
+            .footer {
+                border: solid 1px pink;
+
+                flex-flow: 0 0 auto;
+            }
+
+            .side-in{
+                transition:  var(--transition-duration);
+                right: 0px;
+            }
+
+            .side-out{
+                transition: var(--transition-duration);
+                right: calc( -1 * var(--side-width));
+            }
+
+            .side-in-main{
+                transition:  var(--transition-duration);
+                width: calc( 100% - var(--side-width))
+            }
+
+            .side-out-main{
+                transition: var(--transition-duration);
+                width: 100%;
+            }
+
+        </style>
+        <script>
+
+            function openside(){
+                document.getElementById('side-panel').className= 'side side-in'
+                document.getElementById('main-panel').className= 'side side-in-main'
+            }
+
+            function closeside(){
+                document.getElementById('side-panel').className= 'side side-out'
+                document.getElementById('main-panel').className= 'side side-out-main'
+            }
+
+        </script>
+    </head>
+<body>
+
+    <div class="app">
+        <div class="title"><h1>Title Layout 3</h1></div>
+        <div class="tool">tool<br/><button onclick="openside()">open</button></div>
+        <div class="content">
+            <div id="main-panel" class="main side-out-main">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, voluptatem?
+                Facere, ipsa! Laudantium temporibus explicabo asperiores quia incidunt voluptas inventore.
+                Voluptatum, praesentium laudantium error placeat atque recusandae rem beatae voluptatem.
+                Ipsa dolore architecto, harum laborum soluta labore excepturi eum ab.
+                Mollitia dolores natus tenetur ipsam corrupti possimus doloremque sapiente iure?
+                Excepturi distinctio hic amet laborum ipsam doloribus delectus pariatur repellat!
+                Esse sed dolorem quam id nesciunt voluptates quod delectus odit!
+                Doloribus atque voluptas perspiciatis laudantium illum inventore cupiditate totam minima?
+                Explicabo quae voluptate vel. Cumque perspiciatis similique labore autem corporis.
+                Voluptatum quia distinctio veniam quidem, possimus pariatur quis. Quidem, harum!
+            </div>
+            <div id="side-panel" class="side side-out">
+                <div class="side-header">
+                    <div>Header<button onclick="closeside()">close</button></div>
+                    <div>Sub-Heading</div>
+                </div>
+                <div class="side-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, saepe.
+                Unde natus explicabo iusto quas ipsam velit? Harum, voluptatum facere.
+                Odio minus vitae voluptas ipsam molestias necessitatibus, assumenda voluptates nam.
+                Veritatis consequatur corporis odit delectus deserunt unde explicabo autem nobis?
+                Commodi quaerat error voluptate. Ipsum rerum error praesentium ab esse?
+                Quia sit excepturi mollitia eos esse animi possimus placeat ipsam?
+                Eligendi, quibusdam. Error quam velit ad vel, accusamus quasi at.
+                Quod voluptate beatae a. Quaerat natus similique ut doloribus nesciunt.
+                Molestias commodi deserunt eos molestiae laborum modi earum atque distinctio?
+                Et ullam exercitationem ipsum dolore nesciunt accusamus voluptate non placeat.</div>
+            </div>
+        </div>
+        <div class="footer">footer</div>
+    </div>
+
+</body>
+</html>
